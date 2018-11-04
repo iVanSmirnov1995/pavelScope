@@ -2,8 +2,8 @@
 //  ViewController.m
 //  testPr
 //
-//  Created by Smirnov Ivan on 05/11/2018.
-//  Copyright © 2018 Smirnov Ivan & Pavel Scope. All rights reserved.
+//  Created by Pavel Scope & Smirnov Ivan on 05/11/2018.
+//  Copyright © 2018 Pavel Scope & Smirnov Ivan. All rights reserved.
 //
 
 #import "ViewController.h"
