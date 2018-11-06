@@ -22,7 +22,8 @@
     [self.view addSubview:view];
     self.testView = view;
     
-    UITapGestureRecognizer* tapGesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(handleTap:)];
+    UITapGestureRecognizer* tapGesture = [[UITapGestureRecognizer alloc]initWithTarget:self         action:@selector(handleTap:)];
+    UIPanGestureRecognizer * pan = [[UIPanGestureRecognizer alloc]initWithTarget:self                                       action:@selector(handlePan:)];  
    
     [self.testView addGestureRecognizer:tapGesture];
 }
@@ -43,8 +44,12 @@
 
 
 - (void) handleTap:(UITapGestureRecognizer*) tapGesture {
-    NSLog(@"это вывоз");
+   
     self.testView.backgroundColor = [self randomColor];
+}
+
+- (void) handlePan:(UIPanGestureRecognizer*) pan {
+    
 }
 
 @end
