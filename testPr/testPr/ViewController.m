@@ -22,10 +22,12 @@
     [self.view addSubview:view];
     self.testView = view;
     
-    UITapGestureRecognizer* tapGesture = [[UITapGestureRecognizer alloc]initWithTarget:self         action:@selector(handleTap:)];
-    UIPanGestureRecognizer * pan = [[UIPanGestureRecognizer alloc]initWithTarget:self                                               action:@selector(handlePan:)];
+    
+    UIPanGestureRecognizer * pan = [[UIPanGestureRecognizer alloc]initWithTarget:self                                                               action:@selector(handlePan:)];
+    
+    [self.view addGestureRecognizer:pan];
    
-    [self.testView addGestureRecognizer:tapGesture];
+  
 }
 
 -(UIView*) create:(UIView*) view pozition:(CGRect) rect colorVar:(UIColor*) color {
@@ -43,13 +45,10 @@
 }
 
 
-- (void) handleTap:(UITapGestureRecognizer*) tapGesture {
-   
-    self.testView.backgroundColor = [self randomColor];
-}
+
 
 - (void) handlePan:(UIPanGestureRecognizer*) pan {
-    
+    self.testView.center = [pan locationInView:self.view]
 }
 
 @end
