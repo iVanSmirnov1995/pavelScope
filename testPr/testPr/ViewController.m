@@ -9,7 +9,7 @@
 #import "ViewController.h"
 
 @interface ViewController ()
-
+@property(weak,nonatomic) UIView * testView;
 @end
 
 @implementation ViewController
@@ -17,8 +17,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    UIView *view = [[UIView alloc]initWithFrame:CGRectMake(10, 10, 200, 200)];
+    view.backgroundColor = [UIColor blackColor];
+    [self.view addSubview:view];
+    self.testView = view;
     
+    UITapGestureRecognizer* tapGesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(handleTap:)];
    
+    [self.testView addGestureRecognizer:tapGesture];
 }
 
 -(UIView*) create:(UIView*) view pozition:(CGRect) rect colorVar:(UIColor*) color {
@@ -36,5 +42,9 @@
 }
 
 
+- (void) handleTap:(UITapGestureRecognizer*) tapGesture {
+    NSLog(@"это вывоз");
+    self.testView.backgroundColor = [self randomColor];
+}
 
-
+@end
