@@ -23,7 +23,7 @@
     self.testView = view;
     
     UITapGestureRecognizer* tapGesture = [[UITapGestureRecognizer alloc]initWithTarget:self         action:@selector(handleTap:)];
-    UIPanGestureRecognizer * pan = [[UIPanGestureRecognizer alloc]initWithTarget:self                                       action:@selector(handlePan:)];  
+    UIPanGestureRecognizer * pan = [[UIPanGestureRecognizer alloc]initWithTarget:self                                               action:@selector(handlePan:)];
    
     [self.testView addGestureRecognizer:tapGesture];
 }
