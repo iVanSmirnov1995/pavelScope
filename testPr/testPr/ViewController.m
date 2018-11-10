@@ -28,6 +28,10 @@
 
 
 - (IBAction)actionNumber:(UIButton *)sender {
-     self.indicatorLabel.text = [NSString stringWithFormat:@"%ld", sender.tag];
+    
+    self.indicatorLabel.text = [NSString stringWithFormat:@"%ld", sender.tag + self.Time];
+    self.AllTime = (sender.tag + self.Time)*10;
+    self.Time =  self.AllTime;
+    
 }
 @end

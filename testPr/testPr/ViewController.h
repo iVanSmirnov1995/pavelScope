@@ -14,7 +14,8 @@
 
 
 @property (weak, nonatomic) IBOutlet UILabel *indicatorLabel;
-@property (assign,nonatomic) long double time;
+@property (assign,nonatomic) NSInteger Time;
+@property (assign,nonatomic) NSInteger AllTime;
 
 
 @end
