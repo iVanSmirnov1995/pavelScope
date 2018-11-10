@@ -37,4 +37,35 @@
 
 
 
+
+
+- (IBAction)actionZero:(UIButton *)sender {
+}
+
+- (IBAction)actionOne:(UIButton *)sender {
+}
+
+- (IBAction)actionTwo:(UIButton *)sender {
+}
+
+- (IBAction)actionThree:(UIButton *)sender {
+}
+
+- (IBAction)actionFour:(UIButton *)sender {
+}
+
+- (IBAction)actionFife:(UIButton *)sender {
+}
+
+- (IBAction)actionSix:(UIButton *)sender {
+}
+
+- (IBAction)actionSeven:(UIButton *)sender {
+}
+
+- (IBAction)actionEight:(UIButton *)sender {
+}
+
+- (IBAction)actionNine:(UIButton *)sender {
+}
 @end
