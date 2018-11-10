@@ -21,6 +21,8 @@
 - (IBAction)actionEight:(UIButton *)sender;
 - (IBAction)actionNine:(UIButton *)sender;
 
+@property (weak, nonatomic) IBOutlet UILabel *indicatorLabel;
+@property (assign,nonatomic) long double time;
 
 
 @end
