@@ -11,13 +11,19 @@
 @interface ViewController : UIViewController
 - (IBAction)actionNumber:(UIButton *)sender;
 - (IBAction)actionAllCancel:(UIButton *)sender;
+- (IBAction)actionPlus:(UIButton *)sender;
+- (IBAction)actionMinus:(UIButton *)sender;
+- (IBAction)actionResult:(UIButton *)sender;
 
 
 
 @property (weak, nonatomic) IBOutlet UILabel *indicatorLabel;
 @property (assign,nonatomic) NSInteger Time;
 @property (assign,nonatomic) NSInteger AllTime;
+@property (assign,nonatomic) NSInteger Result;
 @property (assign,nonatomic) NSInteger FirstResult;
+@property (assign,nonatomic) NSInteger SecondResult;
+@property (assign,nonatomic) NSInteger TotalResult;
 
 
 @end

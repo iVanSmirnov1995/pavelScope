@@ -72,6 +72,9 @@
                                 <state key="normal" title="-">
                                     <color key="titleColor" red="0.90196078431372551" green="0.90196078431372551" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
+                                <connections>
+                                    <action selector="actionMinus:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Xvj-CY-6OJ"/>
+                                </connections>
                             </button>
                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="J91-ui-KxN">
                                 <rect key="frame" x="94" y="486" width="93" height="93"/>
@@ -105,6 +108,9 @@
                                 <state key="normal" title="+">
                                     <color key="titleColor" red="0.90196078431372551" green="0.90196078431372551" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
+                                <connections>
+                                    <action selector="actionPlus:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OGZ-d3-ZYc"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="KSH-6l-hw0">
                                 <rect key="frame" x="0.0" y="580" width="187" height="87"/>
@@ -126,6 +132,9 @@
                                 <state key="normal" title="=">
                                     <color key="titleColor" red="0.13725490200000001" green="0.13725490200000001" blue="0.13725490200000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
+                                <connections>
+                                    <action selector="actionResult:" destination="BYZ-38-t0r" eventType="touchUpInside" id="RdY-sA-hul"/>
+                                </connections>
                             </button>
                             <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="MtV-O8-CfE">
                                 <rect key="frame" x="0.0" y="298" width="93" height="93"/>
