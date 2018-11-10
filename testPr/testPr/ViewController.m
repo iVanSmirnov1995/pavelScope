@@ -23,10 +23,12 @@ enum tag {
 
 @implementation ViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    
-   
+//- (void)viewDidLoad {
+//    [super viewDidLoad];
+//    self.buttonZero.transform = CGAffineTransformScale(<#CGAffineTransform t#>, <#CGFloat sx#>, <#CGFloat sy#>)
+//    [UIView animateWithDuration:1 animations:^{
+//        
+//    }];
    
   
 }
@@ -69,7 +71,21 @@ enum tag {
     }
 }
 
-#pragma mark -action
+- (void) printNumerInLabel:(NSInteger)result {
+    
+    self.indicatorLabelTwo.text = [NSString stringWithFormat:@"%ld", self.Result];
+    if(result >= 100) {
+        NSInteger firstPart = result/100;
+        NSInteger secondPart = result%(firstPart*100);
+        if(result%(firstPart*100)!=0){
+            self.indicatorLabelTwo.text = [NSString stringWithFormat:@"%ld:%ld",firstPart,secondPart];
+        } else {
+            self.indicatorLabelTwo.text = [NSString stringWithFormat:@"%ld:0%ld",firstPart,secondPart];
+            
+        }
+    }
+}
+
 
 - (void) printNumberInLabelResult {
     if(self.Result >= 100) {
@@ -85,17 +101,65 @@ enum tag {
     }
 }
 
+- (NSInteger) firstTime:(NSInteger) time1 andSecondTime:(NSInteger) time2 andPlusOrMinus:(enum tag)tag {
+    NSInteger cancelTime = 0;
+    if(tag == Plus) {
+        struct PStime one;
+        struct PStime two;
+        struct PStime three;
+        
+        one.hours = time1/100;
+        if(one.hours!=0) {one.minutes = time1%(one.hours*100);} else {one.minutes = time1;}
+        
+        
+        two.hours = time2/100;
+        if(two.hours!=0) {two.minutes = time2%(two.hours*100);} else {two.minutes = time2;}
+        
+        
+        three.hours = one.hours + two.hours + (one.minutes + two.minutes)/60;
+        three.minutes = (one.minutes + two.minutes)%60;
+        
+        cancelTime = three.hours*100 + three.minutes;
+        
+    }
+    if(tag == Minus) {
+        struct PStime one;
+        struct PStime two;
+        struct PStime three;
+        
+        one.hours = time1/100;
+        if(one.hours!=0) {one.minutes = time1%(one.hours*100);} else {one.minutes = time1;}
+        
+        
+        two.hours = time2/100;
+        if(two.hours!=0) {two.minutes = time2%(two.hours*100);} else {two.minutes = time2;}
+        
+        
+        
+        three.hours = one.hours - two.hours + (one.minutes - two.minutes)/60;
+        three.minutes = (one.minutes - two.minutes)%60;
+        
+        cancelTime = three.hours*100 + three.minutes;
+        
+    }
+    return cancelTime;
+}
+
+
+#pragma mark -action
+
+
 - (IBAction)actionNumber:(UIButton *)sender {
     
     self.Result = sender.tag + self.Time;
     self.indicatorLabel.text = [NSString stringWithFormat:@"%ld", self.Result];
     self.AllTime = (sender.tag + self.Time)*10;
     self.Time =  self.AllTime;
-    [self printNumberInLabelResult];
+        [self printNumberInLabelResult];
    
     if(self.Result > 9999) {
-        self.indicatorLabel.text = @"0";
-        [self emptyNumer];
+        self.indicatorLabel.text = @"0:00";
+        [self syperEmptyNumer];
     }
     [self printResult];
 }
@@ -103,14 +167,17 @@ enum tag {
 - (IBAction)actionAllCancel:(UIButton *)sender {
     
     self.indicatorLabel.text = @"0:00";
+    self.indicatorLabelTwo.text = @"";
     [self syperEmptyNumer];
     [self printResult];
     
 }
 
 - (IBAction)actionPlus:(UIButton *)sender {
-    self.indicatorLabel.text = @"+";
+    self.indicatorLabel.text = @"+0:00";
     self.FirstResult = self.Result;
+    [self printNumerInLabel:self.FirstResult];
+    
     [self printResult];
     [self emptyNumer];
     [self printResult];
@@ -120,8 +187,10 @@ enum tag {
 }
 
 - (IBAction)actionMinus:(UIButton *)sender {
-    self.indicatorLabel.text = @"-";
+    self.indicatorLabel.text = @"-0:00";
     self.SecondResult = self.Result;
+    [self printNumerInLabel:self.SecondResult];
+    
      [self printResult];
     [self emptyNumer];
      [self printResult];
@@ -145,49 +214,14 @@ enum tag {
         self.indicatorLabel.text = [NSString stringWithFormat:@"%ld", self.TotalResult];
         [self printNumerInLabel];
     }
-    
+    self.indicatorLabelTwo.text = @"";
     [self printResult];
     
 }
 
-- (NSInteger) firstTime:(NSInteger) time1 andSecondTime:(NSInteger) time2 andPlusOrMinus:(enum tag)tag {
-    NSInteger cancelTime;
-    if(tag == Plus) {
-    struct PStime one;
-    struct PStime two;
-    struct PStime three;
-        
-        one.hours = time1/100;
-        one.minutes = time1%(one.hours*100);
-        
-        two.hours = time2/100;
-        two.minutes = time2%(two.hours*100);
-        
-        three.hours = one.hours + two.hours + (one.minutes + two.minutes)/60;
-        three.minutes = (one.minutes + two.minutes)%60;
 
-        cancelTime = three.hours*100 + three.minutes;
-        
-    }
-    if(tag == Minus) {
-        struct PStime one;
-        struct PStime two;
-        struct PStime three;
-        
-        one.hours = time1/100;
-        one.minutes = time1%(one.hours*100);
-        
-        two.hours = time2/100;
-        two.minutes = time2%(two.hours*100);
-        
-        three.hours = one.hours - two.hours + (one.minutes - two.minutes)/60;
-        three.minutes = (one.minutes - two.minutes)%60;
-        
-        cancelTime = three.hours*100 + three.minutes;
-        
-    }
-    return cancelTime;
-}
+
+
 
 
 @end
