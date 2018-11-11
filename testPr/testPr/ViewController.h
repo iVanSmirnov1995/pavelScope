@@ -2,13 +2,29 @@
 //  ViewController.h
 //  testPr
 //
-//  Created by Smirnov Ivan on 05/11/2018.
-//  Copyright © 2018 Smirnov Ivan. All rights reserved.
+//  Created by Pavel Scope & Smirnov Ivan on 05/11/2018.
+//  Copyright © 2018 Pavel Scope & Smirnov Ivan. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
 @interface ViewController : UIViewController
+- (IBAction)actionNumber:(UIButton *)sender;
+- (IBAction)actionAllCancel:(UIButton *)sender;
+- (IBAction)actionPlus:(UIButton *)sender;
+- (IBAction)actionMinus:(UIButton *)sender;
+- (IBAction)actionResult:(UIButton *)sender;
+
+@property (weak, nonatomic) IBOutlet UILabel *indicatorLabelTwo;
+@property (weak, nonatomic) IBOutlet UILabel *indicatorLabel;
+
+@property (assign,nonatomic) NSInteger Time;
+@property (assign,nonatomic) NSInteger AllTime;
+@property (assign,nonatomic) NSInteger Result;
+@property (assign,nonatomic) NSInteger FirstResult;
+@property (assign,nonatomic) NSInteger SecondResult;
+@property (assign,nonatomic) NSInteger TotalResult;
+@property (weak, nonatomic) IBOutlet UIButton *buttonZero;
 
 
 @end
